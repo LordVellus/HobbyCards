@@ -60,6 +60,18 @@ namespace HobbyCards
             lblCurrentHobbyCard.Content = m_saveData.GetCurrentDrawnCard();
 
             UpdateShffleButton();
+
+            lblPreviousCards.Content = "";
+
+            var previousCards = new StringBuilder();
+
+            for(int i = 0; i < m_saveData.LoadedData.CurrentCard - 1; i++)
+            {
+                var hc = m_saveData.LoadedData.ShuffledHobbyCards[ i ];
+                previousCards.AppendLine( hc.Name );
+            }
+
+            lblPreviousCards.Content += previousCards.ToString();
         }
 
         private void UpdateShffleButton()
@@ -110,6 +122,15 @@ namespace HobbyCards
         private void btnDrawNextCard_Click( object sender, RoutedEventArgs e )
         {
             if( m_saveData.CanDrawNextCard() )
+            {
+                m_saveData.DrawNextCard();
+                Reload();
+            }
+        }
+
+        private void Button_Click( object sender, RoutedEventArgs e )
+        {
+            if( MessageBox.Show( "Are you sure you want to draw the next card?", "Draw Next Card Early?", MessageBoxButton.YesNo ) == MessageBoxResult.Yes )
             {
                 m_saveData.DrawNextCard();
                 Reload();

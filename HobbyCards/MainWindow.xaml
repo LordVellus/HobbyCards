@@ -22,12 +22,16 @@
             <StackPanel Name="HobbyCardsStackPanel"/>
         </GroupBox>
         <Button Name="btnShuffle" Grid.Column="1" Content="Shuffle" HorizontalAlignment="Left" Margin="20,23,0,0" VerticalAlignment="Top" Background="OrangeRed" Height="35" Width="51" Click="btnShuffle_Click"/>
-        <GroupBox Grid.Column="1" Header="Next Hobby Card" Height="164" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255" Margin="20,76,0,0">
+        <GroupBox Grid.Column="1" Header="Next Hobby Card" Height="258" VerticalAlignment="Top" HorizontalAlignment="Left" Width="255" Margin="20,76,0,0">
             <StackPanel>
                 <Button Name="btnDrawNextCard"  Content="Draw Next Card" Height="38" Margin="5,5,5,0" Click="btnDrawNextCard_Click"/>
+                <Button Margin="5,5,5,5" Height="34" Content="Override Draw Next Card" Click="Button_Click" />
                 <Label Name="lblCurrentHobbyCard"  Content="[ Current Hobby Card ]" Height="51" Margin="5,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                 <Label Name="lblTimeToNextCardDraw" Content="[ Next Card Draw ]" Margin="5,5,5,5" />
             </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Previous Cards" Grid.Column="1" Margin="286,76,10,100">
+            <Label x:Name="lblPreviousCards" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" Width="223"/>
         </GroupBox>
 
     </Grid>
